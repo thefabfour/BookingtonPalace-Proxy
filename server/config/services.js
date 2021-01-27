@@ -11,7 +11,7 @@ module.exports = {
     bundle: 'bundle.js',
   },
   service3: {
-    api: 'FIX_ME',
+    api: '/api/home/:id/photos',
     url: 'http://localhost:3003',
     bundle: 'bundle.js',
   },

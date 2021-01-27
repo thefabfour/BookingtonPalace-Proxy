@@ -1,9 +1,7 @@
-const { Router } = require('express');
+const router = require('express').Router();
 const axios = require('axios')
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const { service2 } = require('../config/services.js');
+const { service1, service2, service3 } = require('../config/services.js');
 
-const router = Router();
 
 router.use('/service1.js', (req, res) => {
   axios.get(`${service1.url}/${service1.bundle}`)
@@ -14,7 +12,7 @@ router.use('/service1.js', (req, res) => {
 });
 
 router.use('/service2.js', (req, res) => {
-  axios.get(`${service1.url}/${service1.bundle}`)
+  axios.get(`${service2.url}/${service2.bundle}`)
     .then((response) => {
       res.type('.js');
       res.send(response.data);
@@ -22,7 +20,7 @@ router.use('/service2.js', (req, res) => {
 });
 
 router.use('/service3.js', (req, res) => {
-  axios.get(`${service1.url}/${service1.bundle}`)
+  axios.get(`${service3.url}/${service3.bundle}`)
     .then((response) => {
       res.type('.js');
       res.send(response.data);

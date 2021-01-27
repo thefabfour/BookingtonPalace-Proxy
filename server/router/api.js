@@ -1,9 +1,6 @@
-
- const proxyMiddleware = require('./proxyMiddleware');
-
+const axios = require('axios')
 const { service1, service2, service3,} = require('../config/services.js');
-
-const router = Router();
+const router = require('express').Router();
 
 router.use(service1.cal, (req, res) => {
   axios.get(`${service1.url}${req.baseUrl}`)

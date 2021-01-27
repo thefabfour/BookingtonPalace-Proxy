@@ -1,14 +1,13 @@
 const express = require('express');
-const morgan = require('morgan');
 const path = require('path');
 const router = require('./router');
+const PUBLIC_DIR = path.resolve(__dirname, '..', 'client');
+const PORT = process.env.PORT || 3000 ;
 
-const PORT = 3000 || process.env.PORT;
+console.log(PUBLIC_DIR)
 
-const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 const app = express();
 
-app.use(morgan('dev'));
 app.use(express.static(PUBLIC_DIR));
 
 app.use('/bundles', router.bundles);
