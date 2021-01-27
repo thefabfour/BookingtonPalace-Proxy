@@ -1,15 +1,16 @@
 module.exports = {
-  booking: {
-    api: 'FIX_ME',
+  service1: {
+    api: '/rooms/:propertyId/booking',
+    cal: '/rooms/:propertyId/booking/calendar',
     url: 'http://localhost:3001',
     bundle: 'bundle.js',
   },
-  listing_reviews: {
-    api: 'FIX_ME',
+  service2: {
+    api: '/rooms/:propertyId/reviews',
     url: 'http://localhost:3002',
     bundle: 'bundle.js',
   },
-  photo_carousel: {
+  service3: {
     api: 'FIX_ME',
     url: 'http://localhost:3003',
     bundle: 'bundle.js',

@@ -1,33 +1,32 @@
 const { Router } = require('express');
+const axios = require('axios')
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const {
-  service1, service2, service3, service4,
-} = require('../config/services.js');
+const { service2 } = require('../config/services.js');
 
 const router = Router();
 
-router.use('/service1.js', createProxyMiddleware({
-  target: service1.url,
-  pathRewrite: {
-    '^/bundles/service1.js': service1.bundle,
-  },
-  changeOrigin: true,
-}));
+router.use('/service1.js', (req, res) => {
+  axios.get(`${service1.url}/${service1.bundle}`)
+    .then((response) => {
+      res.type('.js');
+      res.send(response.data);
+    });
+});
 
-router.use('/service2.js', createProxyMiddleware({
-  target: service2.url,
-  pathRewrite: {
-    '^/bundles/service2.js': service2.bundle,
-  },
-  changeOrigin: true,
-}));
+router.use('/service2.js', (req, res) => {
+  axios.get(`${service1.url}/${service1.bundle}`)
+    .then((response) => {
+      res.type('.js');
+      res.send(response.data);
+    });
+});
 
-router.use('/service3.js', createProxyMiddleware({
-  target: service3.url,
-  pathRewrite: {
-    '^/bundles/service3.js': service3.bundle,
-  },
-  changeOrigin: true,
-}));
+router.use('/service3.js', (req, res) => {
+  axios.get(`${service1.url}/${service1.bundle}`)
+    .then((response) => {
+      res.type('.js');
+      res.send(response.data);
+    });
+});
 
 module.exports = router;
