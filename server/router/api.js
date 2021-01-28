@@ -17,14 +17,14 @@ router.use(service1.api, (req, res) => {
 });
 
 router.use(service2.api, (req, res) => {
-  axios.get(`${service1.url}${req.baseUrl}`)
+  axios.get(`${service2.url}${req.baseUrl}`)
     .then((response) => {
       res.send(response.data);
     });
 });
 
 router.use(service3.api, (req, res) => {
-  axios.get(`${service1.url}${req.baseUrl}`)
+  axios.get(`${service3.url}${req.baseUrl}`)
     .then((response) => {
       res.send(response.data);
     });
